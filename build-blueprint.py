@@ -149,12 +149,7 @@ $checklist_pid = wp_insert_post( array(
 $ep_url = home_url( '/elementor-page/' );
 $ne_url = home_url( '/native-editor/' );
 
-$c  = '<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Why the Site Editor?</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>The WordPress Site Editor does not handle performance well by accident. Every image function, every core block, every responsive helper in WordPress core is the result of thousands of contributors — developers, accessibility specialists, performance engineers — working in the open and iterating on real browser behaviour over years of production use. When an img tag gets a srcset, that is not a feature someone bolted on. It is the natural outcome of a community that decided the platform should do the right thing by default, so you do not have to think about it.</p><!-- /wp:paragraph -->';
-$c .= '<!-- wp:paragraph --><p>Commercial page builders are capable products. They offer visual flexibility that the block editor still struggles to match. But they are also businesses with roadmaps and competing priorities. Features that do not appear in a marketing comparison table — like whether your hero image serves a 320px file to a phone instead of a 2000px one — can quietly stay on the backlog for years. This is not always a technical limitation. CSS background images, which is what most builders use for hero sections, give designers more control. But that control has a cost, and the cost is paid by your visitors, not by the builder.</p><!-- /wp:paragraph -->';
-$c .= '<!-- wp:paragraph --><p>What makes this worth studying is not that commercial builders are bad at what they do. It is that WordPress core, maintained largely by volunteers and an open community, consistently does better on the fundamentals. The Site Editor can feel unexciting by comparison — it does not have a slick onboarding wizard or a drag-and-drop panel for every property. But it ships with srcset. It ships with lazy loading. It ships with proper heading hierarchy. These small details compound. On their own, each one is easy to overlook. Together, they are the difference between a page that works for everyone and one that only looks good in a browser demo.</p><!-- /wp:paragraph -->';
-$c .= '<!-- wp:separator --><hr class="wp-block-separator has-alpha-channel-opacity"/><!-- /wp:separator -->';
-$c .= '<!-- wp:paragraph --><p>Two pages. Same hero image. One built with Elementor, one with the native editor. Your job: find out whether the browser can serve the right image size to the right screen — or whether every visitor gets the same file regardless of their device.</p><!-- /wp:paragraph -->';
+$c  = '<!-- wp:paragraph --><p>Two pages. Same hero image. One built with Elementor, one with the native editor. Your job: find out whether the browser can serve the right image size to the right screen — or whether every visitor gets the same file regardless of their device.</p><!-- /wp:paragraph -->';
 
 $c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 1: Find srcset on the Native Editor Page</h2><!-- /wp:heading -->';
 $c .= '<!-- wp:paragraph --><p>Go to <a href="' . $ne_url . '">/native-editor/</a> and open View Page Source (Mac: Cmd+U, Windows: Ctrl+U). Search for <code>srcset</code>. Copy one of the URLs listed in the attribute. Note how many size variants are present and what widths they cover.</p><!-- /wp:paragraph -->';
@@ -176,8 +171,8 @@ $c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 5: Read the srcset a
 $c .= '<!-- wp:paragraph --><p>On <a href="' . $ne_url . '">/native-editor/</a>, open the DevTools Elements tab and click the img element inside the hero. Find the <code>srcset</code> and <code>sizes</code> attributes in the markup. How many candidate URLs are listed? What does the <code>sizes</code> value instruct the browser to do?</p><!-- /wp:paragraph -->';
 $c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> Who wrote those attributes — you, or WordPress?</p><!-- /wp:paragraph -->';
 
-$c .= '<!-- wp:heading --><h2 class="wp-block-heading">Your Conclusions</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>Write your three main conclusions about how srcset differs between the native WordPress editor and a page builder like Elementor.</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:heading --><h2 class="wp-block-heading">Discussion</h2><!-- /wp:heading -->';
+$c .= '<!-- wp:paragraph --><p>Think about what you found. We will discuss as a group at the end.</p><!-- /wp:paragraph -->';
 
 wp_update_post( array( 'ID' => $checklist_pid, 'post_content' => $c ) );
 """
