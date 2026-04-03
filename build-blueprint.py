@@ -410,7 +410,7 @@ blueprint = {
             "path": "/wordpress/wp-content/uploads/hero-landscape.jpg",
             "data": {
                 "resource": "url",
-                "url": "https://cdn.jsdelivr.net/gh/JosVelasco/site-builders-vs-wordpress-srcset@main/hero-landscape.jpg"
+                "url": "https://cdn.jsdelivr.net/gh/JosVelasco/site-builders-vs-wordpress-srcset@35ab0f5/hero-landscape.jpg"
             }
         },
         {
@@ -418,7 +418,7 @@ blueprint = {
             "path": "/wordpress/wp-content/uploads/dorian-wp-workshop.jpg",
             "data": {
                 "resource": "url",
-                "url": "https://cdn.jsdelivr.net/gh/JosVelasco/site-builders-vs-wordpress-srcset@main/dorian-wp-workshop.jpg"
+                "url": "https://cdn.jsdelivr.net/gh/JosVelasco/site-builders-vs-wordpress-srcset@35ab0f5/dorian-wp-workshop.jpg"
             }
         },
         # Create pages
