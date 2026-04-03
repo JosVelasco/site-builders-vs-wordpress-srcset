@@ -110,21 +110,28 @@ update_post_meta( $elementor_page_id, '_wp_page_template',        'elementor_can
 update_post_meta( $elementor_page_id, '_elementor_data', wp_slash( $el_data ) );
 
 // --- Native editor page ---
-$cover  = '<!-- wp:cover {"url":"' . $hero_url . '","id":' . $hero_id . ',"dimRatio":40,"minHeight":70,"minHeightUnit":"vh","isDark":false,"align":"full"} -->';
-$cover .= '<div class="wp-block-cover alignfull" style="min-height:70vh">';
-$cover .= '<span aria-hidden="true" class="wp-block-cover__background has-background-dim-40 has-background-dim"></span>';
-$cover .= '<img class="wp-block-cover__image-background wp-image-' . $hero_id . '" alt="" src="' . $hero_url . '" data-object-fit="cover"/>';
-$cover .= '<div class="wp-block-cover__inner-container">';
-$cover .= '<!-- wp:heading {"textAlign":"center","style":{"color":{"text":"#ffffff"}}} -->';
-$cover .= '<h2 class="wp-element-heading has-text-align-center has-text-color" style="color:#ffffff">Beautiful. Responsive. And Actually Responsive.</h2>';
-$cover .= '<!-- /wp:heading -->';
-$cover .= '<!-- wp:paragraph {"align":"center","style":{"color":{"text":"#ffffff"}}} -->';
-$cover .= '<p class="has-text-align-center has-text-color" style="color:#ffffff">This hero image looks identical. View page source and search for srcset. Then compare with the Elementor page.</p>';
-$cover .= '<!-- /wp:paragraph -->';
-$cover .= '</div></div>';
-$cover .= '<!-- /wp:cover -->';
-$cover .= '<!-- wp:paragraph -->';
-$cover .= '<p style="text-align:center;color:#888888;font-size:12px;">Photo: <a href="https://wordpress.org/photos/photo/206524fb22/" style="color:#888888;">Sagar Tamang</a> &middot; WordPress Photo Directory &middot; CC0</p>';
+$srcset = wp_get_attachment_image_srcset( $hero_id, 'full' );
+$sizes  = wp_get_attachment_image_sizes( $hero_id, 'full' );
+$img    = '<img class="wp-block-cover__image-background wp-image-' . $hero_id . '" alt="" src="' . $hero_url . '" data-object-fit="cover"';
+if ( $srcset ) { $img .= ' srcset="' . esc_attr( $srcset ) . '"'; }
+if ( $sizes )  { $img .= ' sizes="'  . esc_attr( $sizes )  . '"'; }
+$img .= '/>';
+
+$cover  = '<!-- wp:cover {"url":"' . $hero_url . '","id":' . $hero_id . ',"dimRatio":40,"minHeight":70,"minHeightUnit":"vh","isDark":false,"align":"full"} -->' . "\n";
+$cover .= '<div class="wp-block-cover alignfull" style="min-height:70vh">' . "\n";
+$cover .= '<span aria-hidden="true" class="wp-block-cover__background has-background-dim-40 has-background-dim"></span>' . "\n";
+$cover .= $img . "\n";
+$cover .= '<div class="wp-block-cover__inner-container">' . "\n";
+$cover .= '<!-- wp:heading {"textAlign":"center","style":{"color":{"text":"#ffffff"}}} -->' . "\n";
+$cover .= '<h2 class="wp-element-heading has-text-align-center has-text-color" style="color:#ffffff">Beautiful. Responsive. And Actually Responsive.</h2>' . "\n";
+$cover .= '<!-- /wp:heading -->' . "\n";
+$cover .= '<!-- wp:paragraph {"align":"center","style":{"color":{"text":"#ffffff"}}} -->' . "\n";
+$cover .= '<p class="has-text-align-center has-text-color" style="color:#ffffff">This hero image looks identical. View page source and search for srcset. Then compare with the Elementor page.</p>' . "\n";
+$cover .= '<!-- /wp:paragraph -->' . "\n";
+$cover .= '</div></div>' . "\n";
+$cover .= '<!-- /wp:cover -->' . "\n";
+$cover .= '<!-- wp:paragraph -->' . "\n";
+$cover .= '<p style="text-align:center;color:#888888;font-size:12px;">Photo: <a href="https://wordpress.org/photos/photo/206524fb22/" style="color:#888888;">Sagar Tamang</a> &middot; WordPress Photo Directory &middot; CC0</p>' . "\n";
 $cover .= '<!-- /wp:paragraph -->';
 
 $native_page_id = wp_insert_post( array(
