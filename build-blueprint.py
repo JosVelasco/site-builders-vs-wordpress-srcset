@@ -159,23 +159,24 @@ $ne_url = home_url( '/native-editor/' );
 $c  = '<!-- wp:paragraph --><p>Two pages. Same hero image. One built with Elementor, one with the native editor. Your job: find out whether the browser can serve the right image size to the right screen — or whether every visitor gets the same file regardless of their device.</p><!-- /wp:paragraph -->';
 
 $c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 1: Find srcset on the Native Editor Page</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>Go to <a href="' . $ne_url . '">/native-editor/</a> and open View Page Source (Mac: Cmd+U, Windows: Ctrl+U). Search for <code>srcset</code>. Copy one of the URLs listed in the attribute. Note how many size variants are present and what widths they cover.</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p>Go to <a href="' . $ne_url . '"><strong>/native-editor/</strong></a> and open View Page Source (Mac: Cmd+U, Windows: Ctrl+U). Search for <code>srcset</code>. Copy one of the URLs listed in the attribute. Note how many size variants are present and what widths they cover.</p><!-- /wp:paragraph -->';
 $c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> What is the browser choosing between? What does the number after each URL (e.g. <code>768w</code>) mean?</p><!-- /wp:paragraph -->';
 
 $c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 2: Look for srcset on the Elementor Page</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>Go to <a href="' . $ep_url . '">/elementor-page/</a> and View Page Source. Search for <code>srcset</code>. Now search for <code>background-image</code>. What kind of element carries the hero image here?</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p>Go to <a href="' . $ep_url . '"><strong>/elementor-page/</strong></a> and View Page Source. Search for <code>srcset</code>. Now search for <code>background-image</code>. What kind of element carries the hero image here?</p><!-- /wp:paragraph -->';
 $c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> Why is there no srcset? What does using a CSS background instead of an img tag cost the visitor?</p><!-- /wp:paragraph -->';
 
 $c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 3: See Which Image the Browser Actually Downloaded</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>Open DevTools (Mac: Cmd+Option+I, Windows: Ctrl+Shift+I) and go to the Network tab. Filter by <strong>Img</strong>. Hard-reload <a href="' . $ep_url . '">/elementor-page/</a> (Mac: Cmd+Shift+R, Windows: Ctrl+Shift+F5) and note the image filename and transfer size. Do the same on <a href="' . $ne_url . '">/native-editor/</a>.</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p>Open DevTools (Mac: Cmd+Option+I, Windows: Ctrl+Shift+I) and go to the Network tab. Check <strong>Disable cache</strong>, then filter by <strong>Img</strong>. Reload <a href="' . $ep_url . '"><strong>/elementor-page/</strong></a> and note the image filename and transfer size. Do the same on <a href="' . $ne_url . '"><strong>/native-editor/</strong></a>.</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p><strong>Note:</strong> Do not hard-reload (Cmd+Shift+R / Ctrl+Shift+F5) in Playground — it bypasses the service worker and the page will not load.</p><!-- /wp:paragraph -->';
 $c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> Are the filenames identical? Did the native editor page serve a different size variant?</p><!-- /wp:paragraph -->';
 
 $c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 4: Shrink the Viewport and Reload</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>Drag your browser window to roughly 400 px wide and hard-reload <a href="' . $ne_url . '">/native-editor/</a>. Check the Network tab — which image file did the browser request this time? Compare the filename and size with Task 3. Now do the same on <a href="' . $ep_url . '">/elementor-page/</a>. Does the filename change?</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p>Drag your browser window to roughly 400 px wide. With <strong>Disable cache</strong> still checked in the Network tab, reload <a href="' . $ne_url . '"><strong>/native-editor/</strong></a>. Which image file did the browser request this time? Compare the filename and size with Task 3. Do the same on <a href="' . $ep_url . '"><strong>/elementor-page/</strong></a>. Does the filename change?</p><!-- /wp:paragraph -->';
 $c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> What does this difference mean for data usage on a mobile connection?</p><!-- /wp:paragraph -->';
 
 $c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 5: Read the srcset and sizes Attributes</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>On <a href="' . $ne_url . '">/native-editor/</a>, open the DevTools Elements tab and click the img element inside the hero. Find the <code>srcset</code> and <code>sizes</code> attributes in the markup. How many candidate URLs are listed? What does the <code>sizes</code> value instruct the browser to do?</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p>On <a href="' . $ne_url . '"><strong>/native-editor/</strong></a>, open the DevTools Elements tab and click the img element inside the hero. Find the <code>srcset</code> and <code>sizes</code> attributes in the markup. How many candidate URLs are listed? What does the <code>sizes</code> value instruct the browser to do?</p><!-- /wp:paragraph -->';
 $c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> Who wrote those attributes — you, or WordPress?</p><!-- /wp:paragraph -->';
 
 $c .= '<!-- wp:heading --><h2 class="wp-block-heading">Discussion</h2><!-- /wp:heading -->';
