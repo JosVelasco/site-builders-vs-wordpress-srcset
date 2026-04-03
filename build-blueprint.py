@@ -81,6 +81,15 @@ $el_data = json_encode( array(
                             'editor' => '<p style="color: #ffffff; font-size: 20px; text-align: center;">This hero image looks perfect. Open DevTools Network tab to see what the browser actually downloaded.</p>',
                         ),
                     ),
+                    array(
+                        'id'         => 'q1r2s3t4',
+                        'elType'     => 'widget',
+                        'isInner'    => false,
+                        'widgetType' => 'text-editor',
+                        'settings'   => array(
+                            'editor' => '<p style="color: #cccccc; font-size: 12px; text-align: center;">Photo: <a href="https://wordpress.org/photos/photo/206524fb22/" style="color:#cccccc;">Sagar Tamang</a> &middot; WordPress Photo Directory &middot; CC0</p>',
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -113,6 +122,9 @@ $cover .= '<p class="has-text-align-center has-text-color" style="color:#ffffff"
 $cover .= '<!-- /wp:paragraph -->';
 $cover .= '</div></div>';
 $cover .= '<!-- /wp:cover -->';
+$cover .= '<!-- wp:paragraph {"align":"center","style":{"elements":{"link":{"color":{"text":"#888888"}}},"color":{"text":"#888888"}}} -->';
+$cover .= '<p class="has-text-align-center has-text-color" style="color:#888888;font-size:12px;">Photo: <a href="https://wordpress.org/photos/photo/206524fb22/">Sagar Tamang</a> &middot; WordPress Photo Directory &middot; CC0</p>';
+$cover .= '<!-- /wp:paragraph -->';
 
 $native_page_id = wp_insert_post( array(
     'post_title'     => 'Native Editor',

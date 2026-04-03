@@ -37,6 +37,7 @@ add_action( 'admin_notices', function () {
 		<div style="padding:16px 24px;color:#e8dcc8;">
 			<p style="font-family:system-ui,-apple-system,sans-serif;font-size:18px;font-weight:normal;margin:0 0 14px;line-height:1.7;color:#e8dcc8;">Your page builder produces a hero that looks perfect on every screen. But has it created an img tag? Without one, there is no srcset — and without srcset, every visitor downloads the same full-resolution file.</p>
 			<a href="<?php echo esc_url( $url ); ?>" style="font-family:'Cinzel',serif;color:#d4a843;font-size:22px;font-weight:600;text-decoration:underline;">&rarr; Open Workshop Checklist</a>
+			<p style="font-size:12px;color:#888;margin:12px 0 0;">Photo: <a href="https://wordpress.org/photos/photo/206524fb22/" style="color:#888;">Sagar Tamang</a> &middot; WordPress Photo Directory &middot; CC0</p>
 		</div>
 	</div>
 	<?php
