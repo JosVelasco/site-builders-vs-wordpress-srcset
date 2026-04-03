@@ -123,8 +123,8 @@ $cover .= '<p class="has-text-align-center has-text-color" style="color:#ffffff"
 $cover .= '<!-- /wp:paragraph -->';
 $cover .= '</div></div>';
 $cover .= '<!-- /wp:cover -->';
-$cover .= '<!-- wp:paragraph {"align":"center","style":{"elements":{"link":{"color":{"text":"#888888"}}},"color":{"text":"#888888"}}} -->';
-$cover .= '<p class="has-text-align-center has-text-color" style="color:#888888;font-size:12px;">Photo: <a href="https://wordpress.org/photos/photo/206524fb22/">Sagar Tamang</a> &middot; WordPress Photo Directory &middot; CC0</p>';
+$cover .= '<!-- wp:paragraph -->';
+$cover .= '<p style="text-align:center;color:#888888;font-size:12px;">Photo: <a href="https://wordpress.org/photos/photo/206524fb22/" style="color:#888888;">Sagar Tamang</a> &middot; WordPress Photo Directory &middot; CC0</p>';
 $cover .= '<!-- /wp:paragraph -->';
 
 $native_page_id = wp_insert_post( array(
