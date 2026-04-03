@@ -106,6 +106,7 @@ $elementor_page_id = wp_insert_post( array(
 update_post_meta( $elementor_page_id, '_elementor_edit_mode',     'builder' );
 update_post_meta( $elementor_page_id, '_elementor_template_type', 'wp-page' );
 update_post_meta( $elementor_page_id, '_elementor_version',       '3.35.5' );
+update_post_meta( $elementor_page_id, '_wp_page_template',        'elementor_canvas' );
 update_post_meta( $elementor_page_id, '_elementor_data', wp_slash( $el_data ) );
 
 // --- Native editor page ---
@@ -386,14 +387,10 @@ blueprint = {
             "step": "wp-cli",
             "command": "wp option update elementor_onboarding_opt_in yes --allow-root"
         },
-        # Theme
+        # Theme — twentytwentyfive ships with WP 6.9 and has native alignfull support
         {
-            "step": "installTheme",
-            "themeData": {
-                "resource": "wordpress.org/themes",
-                "slug": "hello-elementor"
-            },
-            "options": {"activate": True}
+            "step": "wp-cli",
+            "command": "wp theme activate twentytwentyfive --allow-root"
         },
         # Plugins
         {
