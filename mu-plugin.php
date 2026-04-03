@@ -42,6 +42,18 @@ add_action( 'admin_notices', function () {
 	<?php
 } );
 
+// Force the Cover block to break out of the theme's content container.
+add_action( 'wp_head', function () {
+	echo '<style>
+		.wp-block-cover.alignfull {
+			width: 100vw;
+			max-width: 100vw;
+			margin-left: calc(50% - 50vw);
+			margin-right: calc(50% - 50vw);
+		}
+	</style>';
+} );
+
 // Quiz styles loaded in footer to override QSM's own stylesheet.
 add_action( 'wp_footer', function () {
 	echo '<style>
