@@ -158,26 +158,18 @@ $ne_url = home_url( '/native-editor/' );
 
 $c  = '<!-- wp:paragraph --><p>Two pages. Same hero image. One built with Elementor, one with the native editor. Your job: find out whether the browser can serve the right image size to the right screen — or whether every visitor gets the same file regardless of their device.</p><!-- /wp:paragraph -->';
 
-$c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 1: Find srcset on the Native Editor Page</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>Go to <a href="' . $ne_url . '"><strong>/native-editor/</strong></a>. Right-click the hero image and choose <strong>Inspect</strong>. In the Elements tab, hover over the <code>&lt;img&gt;</code> tag — you will see the full element including the <code>srcset</code> attribute. Right-click the tag and choose <strong>Copy &rarr; Copy element</strong> and paste it in your notes.</p><!-- /wp:paragraph -->';
-$c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> How many size variants are listed? What does the number after each URL (e.g. <code>768w</code>) mean?</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 1: Compare the Markup</h2><!-- /wp:heading -->';
+$c .= '<!-- wp:paragraph --><p>Open DevTools (Mac: Cmd+Option+I, Windows: Ctrl+Shift+I) and go to the <strong>Elements</strong> tab.</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p>Go to <a href="' . $ne_url . '"><strong>/native-editor/</strong></a>. Right-click the hero image and choose <strong>Inspect</strong>. Find the element carrying the image — what tag is it? Look for <code>srcset</code> and <code>sizes</code> attributes. Right-click the tag, choose <strong>Copy &rarr; Copy element</strong>, and paste it in your notes.</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p>Now go to <a href="' . $ep_url . '"><strong>/elementor-page/</strong></a>. Right-click the hero area and <strong>Inspect</strong>. Find the element carrying the background image — what tag is it this time? Copy it to your notes as well.</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> What differences did you notice between the two elements?</p><!-- /wp:paragraph -->';
 
-$c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 2: Look for srcset on the Elementor Page</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>Go to <a href="' . $ep_url . '"><strong>/elementor-page/</strong></a>. Right-click the hero area and choose <strong>Inspect</strong>. Look at the element that carries the background image — what tag is it? Does it have a <code>srcset</code> attribute? Copy the element to your notes.</p><!-- /wp:paragraph -->';
-$c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> Why is there no srcset? What does using a CSS background instead of an img tag cost the visitor?</p><!-- /wp:paragraph -->';
-
-$c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 3: See Which Image the Browser Actually Downloaded</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>Open DevTools (Mac: Cmd+Option+I, Windows: Ctrl+Shift+I) and go to the Network tab. Check <strong>Disable cache</strong>, then filter by <strong>Img</strong>. Reload <a href="' . $ep_url . '"><strong>/elementor-page/</strong></a> and note the image filename. Do the same on <a href="' . $ne_url . '"><strong>/native-editor/</strong></a>.</p><!-- /wp:paragraph -->';
-$c .= '<!-- wp:paragraph --><p><strong>Note:</strong> The Size column will show <em>(ServiceWorker)</em> — that is normal for Playground. Focus on the filename. Also, do not hard-reload (Cmd+Shift+R / Ctrl+Shift+F5) — it breaks Playground.</p><!-- /wp:paragraph -->';
-$c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> Are the filenames the same? Does one include dimensions in the name (e.g. <code>-1024x473</code>)?</p><!-- /wp:paragraph -->';
-
-$c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 4: Shrink the Viewport and Reload</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>Drag your browser window to roughly 400 px wide. With <strong>Disable cache</strong> still checked, reload <a href="' . $ne_url . '"><strong>/native-editor/</strong></a>. What is the filename now? Compare it with what you saw in Task 3. Do the same on <a href="' . $ep_url . '"><strong>/elementor-page/</strong></a> — does the filename change?</p><!-- /wp:paragraph -->';
-$c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> What does the filename difference tell you about what a mobile visitor actually downloads?</p><!-- /wp:paragraph -->';
-
-$c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 5: Read the srcset and sizes Attributes</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>On <a href="' . $ne_url . '"><strong>/native-editor/</strong></a>, open the DevTools Elements tab and click the img element inside the hero. Find the <code>srcset</code> and <code>sizes</code> attributes in the markup. How many candidate URLs are listed? What does the <code>sizes</code> value instruct the browser to do?</p><!-- /wp:paragraph -->';
-$c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> Who wrote those attributes — you, or WordPress?</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:heading --><h2 class="wp-block-heading">Task 2: Watch What the Browser Downloads</h2><!-- /wp:heading -->';
+$c .= '<!-- wp:paragraph --><p>Switch to the <strong>Network</strong> tab. Check <strong>Disable cache</strong> and filter by <strong>Img</strong>.</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p>Reload <a href="' . $ep_url . '"><strong>/elementor-page/</strong></a> and note the image filename. Then reload <a href="' . $ne_url . '"><strong>/native-editor/</strong></a> and note its filename.</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p>Now drag your browser window to roughly 400 px wide, reload both pages again, and compare the filenames with what you saw at full width.</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p><strong>Note:</strong> The Size column shows <em>(ServiceWorker)</em> in Playground — that is normal. Focus on the filename. Do not hard-reload (Cmd+Shift+R / Ctrl+Shift+F5) — it breaks Playground.</p><!-- /wp:paragraph -->';
+$c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> What did you observe about the filenames across the two pages and the two viewport sizes?</p><!-- /wp:paragraph -->';
 
 $c .= '<!-- wp:heading --><h2 class="wp-block-heading">Discussion</h2><!-- /wp:heading -->';
 $c .= '<!-- wp:paragraph --><p>Think about what you found. We will discuss as a group at the end.</p><!-- /wp:paragraph -->';
