@@ -171,8 +171,6 @@ $c .= '<!-- wp:paragraph --><p>Now drag your browser window to roughly 400 px wi
 $c .= '<!-- wp:paragraph --><p><strong>Note:</strong> The Size column shows <em>(ServiceWorker)</em> in Playground — that is normal. Focus on the filename. Do not hard-reload (Cmd+Shift+R / Ctrl+Shift+F5) — it breaks Playground.</p><!-- /wp:paragraph -->';
 $c .= '<!-- wp:paragraph --><p><strong>Discussion:</strong> What did you observe about the filenames across the two pages and the two viewport sizes?</p><!-- /wp:paragraph -->';
 
-$c .= '<!-- wp:heading --><h2 class="wp-block-heading">Discussion</h2><!-- /wp:heading -->';
-$c .= '<!-- wp:paragraph --><p>Think about what you found. We will discuss as a group at the end.</p><!-- /wp:paragraph -->';
 
 wp_update_post( array( 'ID' => $checklist_pid, 'post_content' => $c ) );
 """
@@ -352,7 +350,10 @@ if ( $checklist ) {
     $quiz_url = get_permalink( $kid );
     $q  = '<!-- wp:separator --><hr class="wp-block-separator has-alpha-channel-opacity"/><!-- /wp:separator -->';
     $q .= '<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Knowledge Check</h2><!-- /wp:heading -->';
-    $q .= '<!-- wp:paragraph --><p>Finished all five tasks? Head to the <a href="' . $quiz_url . '">Knowledge Check</a> to confirm what you have learned.</p><!-- /wp:paragraph -->';
+    $q .= '<!-- wp:paragraph --><p>Finished both tasks? Head to the <a href="' . $quiz_url . '">Knowledge Check</a> to test what you found on your own before we discuss.</p><!-- /wp:paragraph -->';
+    $q .= '<!-- wp:separator --><hr class="wp-block-separator has-alpha-channel-opacity"/><!-- /wp:separator -->';
+    $q .= '<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Discussion</h2><!-- /wp:heading -->';
+    $q .= '<!-- wp:paragraph --><p>Think about what you found. We will discuss as a group.</p><!-- /wp:paragraph -->';
     wp_update_post( array( 'ID' => $checklist->ID, 'post_content' => $checklist->post_content . $q ) );
 }
 
